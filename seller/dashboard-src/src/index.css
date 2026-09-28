@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-ink: #0a0d10;
+  --color-ink-raised: #10141a;
+  --color-paper: #e8e4d9;
+  --color-wire: #4d5561;
+  --color-wire-dim: #262b33;
+  --color-verified: #3ddc84;
+  --color-refused: #ff5d5d;
+  --color-pending: #e8b339;
+  --color-buyer: #6ea8ff;
+  --color-rogue: #ff5d5d;
+
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 7px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 0.4rem;
+
+  --background: #0a0d10;
+  --foreground: #d8dbe0;
+  --card: #10141a;
+  --card-foreground: #d8dbe0;
+  --popover: #10141a;
+  --popover-foreground: #d8dbe0;
+  --primary: #3ddc84;
+  --primary-foreground: #06180f;
+  --secondary: #171c23;
+  --secondary-foreground: #d8dbe0;
+  --muted: #171c23;
+  --muted-foreground: #6b7280;
+  --accent: #171c23;
+  --accent-foreground: #d8dbe0;
+  --destructive: #ff5d5d;
+  --border: #1c212a;
+  --input: #1c212a;
+  --ring: #3ddc84;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+}
+
+/* Tabular, settlement-style numerics used across counters and the event rail */
+.font-ledger {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+@keyframes settle-ok {
+  0% {
+    background-color: color-mix(in srgb, var(--color-verified) 14%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes settle-fail {
+  0% {
+    background-color: color-mix(in srgb, var(--color-refused) 14%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes settle-neutral {
+  0% {
+    background-color: color-mix(in srgb, var(--color-wire) 10%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}

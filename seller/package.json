@@ -1,0 +1,30 @@
+{
+  "name": "enma-seller",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "RUN_G2=1 vitest run --config vitest.integration.config.ts",
+    "test:narrator-smoke": "RUN_NARRATOR_SMOKE=1 vitest run --config vitest.integration.config.ts test/integration/narrator.integration.test.ts"
+  },
+  "dependencies": {
+    "@enma/shared": "*",
+    "@anthropic-ai/sdk": "^0.128.0",
+    "@x402/core": "^2.27.0",
+    "@x402/evm": "^2.27.0",
+    "@x402/hono": "^2.27.0",
+    "hono": "^4.13.10",
+    "viem": "^2.56.9",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.0",
+    "wrangler": "^4.142.0"
+  }
+}

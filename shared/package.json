@@ -1,0 +1,10 @@
+{
+  "name": "@enma/shared",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "signal.schema.ts",
+  "dependencies": {
+    "zod": "^3.24.2"
+  }
+}

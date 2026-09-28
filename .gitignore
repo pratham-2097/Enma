@@ -1,0 +1,13 @@
+reference/
+.env
+.env.*
+!.env.example
+.dev.vars
+node_modules/
+.DS_Store
+contracts/out/
+contracts/cache/
+Project Plan_ Enma x402.docx
+generate_wallets.sh
+.wrangler/
+worker-configuration.d.ts
